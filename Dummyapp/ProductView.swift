@@ -31,7 +31,7 @@ struct ProductView: View {
                 .padding(.vertical, 6)
             }
             .listStyle(.grouped)
-            .navigationTitle("Products")
+            .navigationTitle("Product_List")
             .navigationBarTitleDisplayMode(.large)
         }
     }
