@@ -32,7 +32,7 @@ struct ProductView: View {
             }
             .listStyle(.grouped)
             .navigationTitle("Product_List")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
