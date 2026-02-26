@@ -30,6 +30,7 @@ struct ProductView: View {
                 }
                 .padding(.vertical, 6)
             }
+            .listStyle(.plain)
             .navigationTitle("Products")
             .navigationBarTitleDisplayMode(.large)
         }
