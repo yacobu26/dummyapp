@@ -13,27 +13,37 @@ struct ProductView: View {
     
     
     var body: some View {
+        
         NavigationStack {
-            List(products) { product in 
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(product.title)
-                        .font(.headline)
-                    
-                    Text(product.descr)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    
-                    Text("Price: $ \(product.price)")
-                    Text("Rating: \(product.rating)")
-                        .font(.caption)
-                        .foregroundStyle(.orange)
+            ZStack {
+                Color.blue.opacity(0.2)
+                    .ignoresSafeArea()
+                List(products) { product in 
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(product.title)
+                            .font(.headline)
+                        
+                        Text(product.descr)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        
+                        Text("Price: $ \(product.price)")
+                        Text("Rating: \(product.rating)")
+                            .font(.caption)
+                            .foregroundStyle(.orange)
+                    }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal,8)
+                    .listRowBackground(Color.white)
                 }
-                .padding(.vertical, 8)
-                .padding(.horizontal,8)
+                .scrollContentBackground(.hidden)
+                .listStyle(.grouped)
+                
             }
-            .listStyle(.grouped)
             .navigationTitle("Product_List")
             .navigationBarTitleDisplayMode(.inline)
+            
+        
         }
     }
 }
