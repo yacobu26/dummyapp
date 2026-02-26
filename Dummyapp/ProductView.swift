@@ -28,7 +28,8 @@ struct ProductView: View {
                         .font(.caption)
                         .foregroundStyle(.orange)
                 }
-                .padding(.vertical, 6)
+                .padding(.vertical, 8)
+                .padding(.horizontal,8)
             }
             .listStyle(.grouped)
             .navigationTitle("Product_List")
