@@ -15,10 +15,10 @@ struct ProductView: View {
     var body: some View {
         
         NavigationStack {
-            ZStack {
-                Color.blue.opacity(0.2)
-                    .ignoresSafeArea()
-                List(products) { product in 
+             
+            List(products) { product in 
+                NavigationLink(destination: ProductDetailView(product: product)) {
+                    
                     VStack(alignment: .leading, spacing: 6) {
                         Text(product.title)
                             .font(.headline)
@@ -33,13 +33,10 @@ struct ProductView: View {
                             .foregroundStyle(.orange)
                     }
                     .padding(.vertical, 8)
-                    .padding(.horizontal,8)
-                    .listRowBackground(Color.white)
-                }
-                .scrollContentBackground(.hidden)
-                .listStyle(.grouped)
-                
+                    
+                } 
             }
+                
             .navigationTitle("Product_List")
             .navigationBarTitleDisplayMode(.inline)
             
