@@ -9,6 +9,7 @@ import Foundation
 import SwiftData
 
 struct TOPProduct: Codable {
+   
     let products: [Product]
     let total, skip, limit: Int
 }
@@ -23,7 +24,7 @@ struct Product: Codable {
 
 @Model
 class ProductEntity {
-    
+    @Attribute(.unique)
     var title: String
     var category: String
     var descr: String

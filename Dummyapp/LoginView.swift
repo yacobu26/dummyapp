@@ -96,8 +96,18 @@ struct LoginView: View {
             do {
                 try await loginVM.loginAPI()
                 for product in loginVM.prodcutsList {
-                    let entity = ProductEntity(title: product.title, category: product.category, description: product.description, price: product.price, rating: product.rating, discountPercentage: product.discountPercentage, stock: product.stock)
-                    context.insert(entity)
+                    
+                    let descriptor = FetchDescriptor<ProductEntity>(predicate: #Predicate{ $0.title == product.title })
+                    
+                    let existing = try context.fetch(descriptor)
+                    
+                    
+                    if existing.isEmpty {
+                        let entity = ProductEntity(title: product.title, category: product.category, description: product.description, price: product.price, rating: product.rating, discountPercentage: product.discountPercentage, stock: product.stock)
+                        
+                        context.insert(entity)  
+                    }
+                   
                 }
                 
                 try context.save()

@@ -10,13 +10,20 @@ import SwiftData
 
 struct ProductView: View {
     @Query var products: [ProductEntity]
+    @State private var searchText: String = ""
     
+    var filteredProducts: [ProductEntity] {
+        if searchText.isEmpty {
+           return products
+        }
+        return products.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+    }    
     
     var body: some View {
         
         NavigationStack {
              
-            List(products) { product in 
+            List(filteredProducts) { product in 
                 NavigationLink(destination: ProductDetailView(product: product)) {
                     
                     VStack(alignment: .leading, spacing: 6) {
@@ -39,9 +46,11 @@ struct ProductView: View {
                 
             .navigationTitle("Product_List")
             .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $searchText, prompt: "Search products...")
             
         
         }
+        
     }
 }
 
