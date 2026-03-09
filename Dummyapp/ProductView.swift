@@ -40,6 +40,7 @@ struct ProductView: View {
                             .foregroundStyle(.yellow)
                     }
                     .padding(.vertical, 8)
+                    .padding(.horizontal,16)
                     
                 } 
             }
