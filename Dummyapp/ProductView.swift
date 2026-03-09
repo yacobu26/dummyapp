@@ -37,7 +37,7 @@ struct ProductView: View {
                         Text("Price: $ \(product.price)")
                         Text("Rating: \(product.rating)")
                             .font(.caption)
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(.yellow)
                     }
                     .padding(.vertical, 8)
                     
